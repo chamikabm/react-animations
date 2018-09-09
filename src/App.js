@@ -35,6 +35,12 @@ class App extends Component {
           timeout={1000}
           mountOnEnter
           unmountOnExit
+          onEnter={() => console.log("On Enter")}
+          onEntering={() => console.log("On Entering")}
+          onEntered={() => console.log("On Entered")}
+          onExit={() => console.log("On Exit")}
+          onExiting={() => console.log("On Exiting")}
+          onExited={() => console.log("On Exit")}
         >
           {state => (
             <div style={{
