@@ -4,7 +4,10 @@ import './Modal.css';
 
 const modal = (props) => {
 
-  const cssClassName = ['Modal', props.show ? 'ModalOpen' : 'ModalClosed'] ;
+  const cssClassName = [
+    'Modal',
+    props.show === 'entering' ? 'ModalOpen' : props.show === 'exiting' ? 'ModalClosed' : null
+  ] ;
 
   return (
     <div className={cssClassName.join(' ')}>
