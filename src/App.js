@@ -4,6 +4,7 @@ import Transition from 'react-transition-group/Transition';
 
 import "./App.css";
 import Modal from "./components/Modal/Modal";
+import Modal2 from "./components/Modal2/Modal2";
 import Backdrop from "./components/Backdrop/Backdrop";
 import List from "./components/List/List";
 
@@ -11,6 +12,7 @@ class App extends Component {
 
   state = {
     isModalOpen: false,
+    isModal2Open: false,
     showBlock: false,
   };
 
@@ -20,6 +22,14 @@ class App extends Component {
 
   closeModal = () => {
     this.setState({isModalOpen: false});
+  };
+
+  showModal2 = () => {
+    this.setState({isModal2Open: true});
+  };
+
+  closeModal2 = () => {
+    this.setState({isModal2Open: false});
   };
 
   render() {
@@ -53,17 +63,22 @@ class App extends Component {
             }}/>
           )}
         </Transition>
-        <br/>
-        <br/>
+
         <Modal show={this.state.isModalOpen} closed={this.closeModal}/>
+        <Modal2 show={this.state.isModal2Open} closed={this.closeModal2}/>
 
         {
-          this.state.isModalOpen ?
+          this.state.isModalOpen || this.state.isModal2Open ?
             <div>
               <Backdrop show />
             </div> : null
         }
+        <br/>
+        <br/>
         <button className="Button" onClick={this.showModal}>Open Modal</button>
+        <br/>
+        <br/>
+        <button className="Button" onClick={this.showModal2}>Open Modal2</button>
         <h3>Animating Lists</h3>
         <List />
       </div>

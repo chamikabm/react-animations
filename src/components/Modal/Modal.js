@@ -3,6 +3,10 @@ import React from 'react';
 import './Modal.css';
 import Transition from "react-transition-group/Transition";
 
+/*
+This Modal uses Transition Component.
+ */
+
 const animationTiming = {
   enter: 400,
   exit: 1000,
